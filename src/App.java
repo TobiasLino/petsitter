@@ -1,32 +1,31 @@
-package PetShop;
+
 
 import java.util.HashMap;
 
-public class Aplicacao 
-{
- public static void main(String[] args) throws Exception 
- {
-  System.out.println("[Application] Starting..");
-  Menu menu = new Menu();
-  Controle ctrl = new Controle();
-  CreateMap cMap = new CreateMap();
-  HashMap<Integer, Task> options = cMap.get();
+public class App {
 
-  System.out.println("[Application] Started!");
-  menu.inicio();
+	public static void main(String[] args) {
+		System.out.println("[Application] Starting..");
+		Menu menu = new Menu();
+		Controle ctrl = new Controle();
+		CreateMap cMap = new CreateMap();
+		HashMap<Integer, Task> options = cMap.get();
+		
+		System.out.println("[Application] Started!");
+		menu.inicio();
+	
+		while(true) {
+		    menu.mainMenu();
+	
+		    int opcao = ctrl.option();
+	
+		    Object cmd = options.get(opcao);
+		    ((Task) cmd).command();
+		}
+	}
 
-  while(true) {
-      menu.mainMenu();
-
-      int opcao = ctrl.opcao();
-
-      Object cmd = options.get(opcao);
-      ((Task) cmd).command();
- }	
 }
 
-
-// Changed by TobiasLino
 interface Task {
     void command();
 }
@@ -59,4 +58,4 @@ class CreateMap {
         });
         return map;
     }
-}}
+}

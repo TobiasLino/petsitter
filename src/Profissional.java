@@ -1,29 +1,23 @@
-package PetShop;
 
-//import java.util.List;
-//import java.util.ArrayList;
 
-public class Cliente
+public class Profissional 
 {
- public String nomecliente;
+ public String nomeprof;
  public String cpf;
  public String endereco;
  public String ddd; 
  public String numero;
- public String codcliente;
 }
-
  /*
- public List<Animal>animais = new ArrayList<Animal>(); 
- public Cliente(String texto) 
+ public Profissional(String texto) 
  {
   nome = texto;
   cpf = texto;
   endereco = texto;
   ddd = texto;
-  numero = texto; 
-  codcliente = texto;
- }	
+  numero = texto;  
+ }
+		
  public String getNome() 
  {
   return nome;			
@@ -32,6 +26,7 @@ public class Cliente
  {
   this.nome = nome;			
  } 
+	 
  public String getCPF() 
  {
   return cpf;			
@@ -40,6 +35,7 @@ public class Cliente
  {
   this.cpf = cpf;			
  } 
+ 
  public String getEndereco() 
  {
   return endereco;			
@@ -47,29 +43,23 @@ public class Cliente
  public void setEndereco(String endereco) 
  {
   this.endereco = endereco;			
- } 
+ }
+	 
  public String getNumero()
  {
-	return numero; 
+  return numero; 
  } 
  public void setNumero(String numero)
  {
   this.numero = numero;	 
- } 
+ }
+	 
  public String getDDD()
  {
-	return numero; 
+  return numero; 
  } 
  public void setDDD(String ddd)
  {
   this.ddd = ddd;	 
- }  
- public String getCodigoCliente() 
- {
-  return codcliente;			
- }		
- public void setCodigoCliente(String codcliente) 
- {
-  this.codcliente = codcliente;			
- } 
+ } 	
 }*/
