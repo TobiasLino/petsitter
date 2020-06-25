@@ -1,110 +1,88 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.HashMap;
 
 public class Agenda 
 { 
-   public List<Contato> contatos = new ArrayList<Contato>(); 
+   private static int idPetsitter;
+   private static int idClient;
+   private HashMap<Integer, Cliente> clients;
+   private HashMap<Integer, Profissional> petsitters;
+   
    
    public Agenda() {
       System.out.println("[Agenda] Creating new Agenda.");
+      idClient = 0;
+      idPetsitter = 0;
+      clients = new HashMap<>();
+      petsitters = new HashMap<>();
    }
 
-   // TODO(Tobias): transfer interface to Menu
+   public int getTotalClients() {
+      if (clients.size() != idClient) {
+         System.out.println("[getTotalClients] Erro: por algum motivo o total de"
+            + " clientes está errado, por favor verifique isso.");
+         return 0;
+      }
+      return idClient;
+   }
+   public int getTotalPetsitter() {
+      if (petsitters.size() != idPetsitter) {
+         System.out.println("[getTotalClients] Erro: por algum motivo o total de"
+            + " profissionais está errado, por favor verifique isso.");
+         return 0;
+      }
+      return idPetsitter;
+   }
 
-   public void inserirProfissionais()
- {
-  int sair = 1;
-  while(sair == 1) 
-	   {
-	    System.out.println("Entre com o nome do profissional:");	    
-        Controle ctrl = new Controle();        
-        Contato c = new Contato(ctrl.texto());        
-        System.out.println("Entre com o CPF:");
-        c.cpf = ctrl.texto();
-        System.out.println("Entre com o endere�o:");
-        c.endereco = ctrl.texto();
-        System.out.println("Entre com o DDD para contato:");	
-        c.ddd = ctrl.texto();
-        System.out.println("Entre com o numero para contato:");
-        c.numero = ctrl.texto();
-        contatos.add(c);
-        System.out.println("\nProfissional cadastrado!");
-        System.out.println("Para continuar cadastrando digite 1 ou 0 para sair");
-    	@SuppressWarnings("resource")
-    	Scanner out = new Scanner(System.in);
-    	sair = out.nextInt();
-	   }  
- } 
+   public void insertPetsitter(Profissional petsitter) {
+      if (petsitter == null) {
+         System.out.println("[InserirProfissionais] Erro: o petsitter esta nulo");
+         return;
+      }
+      idPetsitter += 1;    // id do último petsitter adicionado
+      petsitters.put(idPetsitter, petsitter);
+   }
 
- // TODO(Tobias): transfer interface to Menu
- // look at the size of this function!
+   public void insertClient(Cliente client) {
+      if (client == null) {
+         System.out.println("[insertClient] Erro: o cliente está nulo");
+         return;
+      }
+      idClient =+ 1;
+      clients.put(idClient, client);
+   }
 
- public void inserirClientes() 
- {
-  int sair = 1;
-  while(sair == 1)
-  {
-   System.out.println("Digite o c�digo do cliente:");
-   Controle ctrl = new Controle();
-   Contato c = new Contato(ctrl.texto());    
-   System.out.println("Entre com o nome do cliente:");
-   c.nomecliente = ctrl.texto(); 
-   System.out.println("Entre com o dia do atendimento:");
-   c.data = ctrl.texto();
-   System.out.println("Entre com o mes:");
-   c.mes = ctrl.texto();
-   System.out.println("Entre com o ano:");
-   c.ano = ctrl.texto();	    
-   System.out.println("Entre com o CPF:");
-   c.cpf = ctrl.texto();
-   System.out.println("Entre com o endere�o:");
-   c.endereco = ctrl.texto();
-   System.out.println("Entre com o DDD para contato:");
-   c.ddd = ctrl.texto();
-   System.out.println("Entre com o numero para contato:");
-   c.numero = ctrl.texto();
-   if(contatos.size()>=5) 
-	  {
-	   System.out.println("Atingiu o limite de cadastros!");
-	  } 
-	  else 
-	     {
-		  System.out.println("Digite a ra�a do animal:");
-		  c.raca = ctrl.texto();
-		  System.out.println("Digite o g�nero do animal:");
-		  c.genero = ctrl.texto();
-		  System.out.println("Digite a idade do animal:");
-		  c.idade = ctrl.texto();
-		  contatos.add(c);
-		  System.out.println("\nAnimal e cliente cadastrados!");
-		  System.out.println("Para continuar cadastrando digite 1 ou 0 para sair");
-		  @SuppressWarnings("resource")
-		  Scanner out = new Scanner(System.in);
-	      sair = out.nextInt();		  
-	     }            
-  }  	    
- } 
+   public void removePetsitter(int id) {
+      petsitters.remove(id);
+      idPetsitter -= 1;
+   }
+   public void removePetsitter(String name) {
+      removeByName(name, idPetsitter, petsitters);
+   }
 
- // TODO(Tobias): need refatoration
+   public void removeClient(int id) {
+      clients.remove(id);
+      idClient -= 1;
+   }
+   public void removeClient(String name) {
+      removeByName(name, idClient, clients);
+   }
 
- public void exibirHistorico()
- {
-  Collections.sort(contatos);    
-  System.out.println("\t\tHist�rico de Atendimentos");  
-  for(Contato contato: contatos) 
-	 {  
-	  //System.out.println("Nome do Petsitter: " + contato.getNomePetsitter());
-	  System.out.println("Nome do Cliente: " + contato.getNomeCliente());
-	  System.out.println("Data de Atendimento: " + contato.getData()+"/"+ contato.getMes()+"/"+contato.getAno());	  
-	  System.out.println("Ra�a: " + contato.getRaca());
-	  System.out.println("\n");	 
-	 }   	  
- }  
-}  
-
-
+   private void removeByName(String name, int idTotal,
+         HashMap<Integer, CommonTypes> agenda) {
+      for (int i : agenda.keySet()) {
+         String nameFromAgenda = agenda.get(i).getName();
+         if (nameFromAgenda.equals(name)) {
+            System.out.println("Removendo: " + nameFromAgenda
+               + "\nid: " + i);
+            agenda.remove(i);
+            idTotal -= 1;
+            return;
+         }
+      }
+      System.out.println("[remove] Nao foi encontrado"
+         + "nenhum Cadastro com esse nome.");
+   }
+}
 
   /*
   import java.util.Map.Entry;

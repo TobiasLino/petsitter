@@ -2,14 +2,18 @@
 //import java.util.List;
 //import java.util.ArrayList;
 
-public class Cliente
+public class Cliente implements CommonTypes
 {
- public String nomecliente;
+ private String nome;
  public String cpf;
  public String endereco;
  public String ddd; 
  public String numero;
  public String codcliente;
+
+ public String getName() {
+    return nome;
+ }
 }
 
  /*

@@ -1,12 +1,16 @@
 
 
-public class Profissional 
+public class Profissional implements CommonTypes
 {
- public String nomeprof;
- public String cpf;
- public String endereco;
- public String ddd; 
- public String numero;
+ private String nome;
+ private String cpf;
+ private String endereco;
+ private String ddd; 
+ private String numero;
+
+ public String getName() {
+    return nome;
+ }
 }
  /*
  public Profissional(String texto) 
