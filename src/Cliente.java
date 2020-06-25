@@ -2,7 +2,7 @@
 //import java.util.List;
 //import java.util.ArrayList;
 
-public class Cliente implements CommonTypes
+public class Cliente extends People
 {
  private String nome;
  public String cpf;
