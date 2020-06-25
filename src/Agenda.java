@@ -64,13 +64,13 @@ public class Agenda
       idClient -= 1;
    }
    public void removeClient(String name) {
-      removeByName(name, idClient, clients);
+      removeByName(name, idClient, clients.values());
    }
 
    private void removeByName(String name, int idTotal,
-         HashMap<Integer, CommonTypes> agenda) {
+         HashMap<Integer, Object> agenda) {
       for (int i : agenda.keySet()) {
-         String nameFromAgenda = agenda.get(i).getName();
+         String nameFromAgenda = ((People)agenda.get(i)).getName();
          if (nameFromAgenda.equals(name)) {
             System.out.println("Removendo: " + nameFromAgenda
                + "\nid: " + i);
