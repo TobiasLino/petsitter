@@ -1,4 +1,4 @@
-package PetShop;
+
 
 import java.util.Scanner;
 
@@ -8,12 +8,12 @@ public class Controle
 	
  public Controle() 
  {
-     System.out.println("[Controle] Creating new Scanner");
+     System.out.println("[Controller] Creating new Scanner");
   scanner = new Scanner(System.in);	  
  }
  // TODO(Tobias): need integer verification
  // check input errors, nulls and invalid values.
- public int opcao() 
+ public int option() 
  {
   int op = scanner.nextInt();
   return op;
@@ -22,11 +22,17 @@ public class Controle
  public String texto()
  {
   String t = scanner.nextLine();
+  if (t == null) {
+      System.out.println("Digite uma informação válida");
+      return "";
+  }
   return t;
  }
- @Override//metodo especial que executa antes de ser destruido
+
+ @Override
  protected void finalize() throws Throwable 
  {
-  scanner.close();		
+  scanner.close();
+  System.out.println("[Controller] Finishing..");
  }
 }

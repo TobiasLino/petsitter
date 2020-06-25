@@ -1,4 +1,4 @@
-package PetShop;
+
 
 // TODO(Tobias): need refatoration
 // The code has getters and setters, but all attributes are public
