@@ -1,11 +1,13 @@
+package br.com.fatec.petsitter.model;
+
 import java.util.HashMap;
 
 public class Agenda 
 { 
    private static int idPetsitter;
    private static int idClient;
-   private HashMap<Integer, Cliente> clients;
-   private HashMap<Integer, Profissional> petsitters;
+   private HashMap<Integer, People> clients;
+   private HashMap<Integer, People> petsitters;
    
    
    public Agenda() {
@@ -64,11 +66,11 @@ public class Agenda
       idClient -= 1;
    }
    public void removeClient(String name) {
-      removeByName(name, idClient, clients.values());
+      removeByName(name, idClient, clients);
    }
 
    private void removeByName(String name, int idTotal,
-         HashMap<Integer, Object> agenda) {
+         HashMap<Integer, People> agenda) {
       for (int i : agenda.keySet()) {
          String nameFromAgenda = ((People)agenda.get(i)).getName();
          if (nameFromAgenda.equals(name)) {

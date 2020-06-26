@@ -1,11 +1,12 @@
+package br.com.fatec.petsitter.model;
 
 
-public class Animal 
-{
- public String raca;
- public String genero;
- public String idade;
- public String codcliente;
+
+public class Animal {
+    private String name;
+    public String raca;
+    public String genero;
+    public String idade;
 }
  /*
  public int compareTo(Animal a) {
