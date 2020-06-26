@@ -8,7 +8,6 @@ import br.com.fatec.petsitter.controller.Controle;
 import java.util.HashMap;
 
 public class App {
-
 	public static void main(String[] args) {
 		System.out.println("[Application] Starting..");
 		Menu menu = new Menu();
@@ -52,7 +51,7 @@ class CreateMap {
         });
         map.put(5, new Task() {
             public void command() {
-            	System.out.println("Histórico");
+            	System.out.println("Histï¿½rico");
             }
         });
         map.put(6, new Task() {
