@@ -39,27 +39,44 @@ class CreateMap {
 
     public HashMap<Integer, Task> get() {
         HashMap<Integer, Task> map = new HashMap<Integer, Task>();
-        map.put(1, new Task() {
+        map.put(1, insertPetsitter());
+        map.put(2, insertClient());
+        map.put(5, showHistoric());
+        map.put(6, exit());
+        return map;
+    }
+
+    private Task insertPetsitter() {
+        return new Task() {
             public void command() {
             	System.out.println("Inserir petsitter");
             }
-        });
-        map.put(2, new Task() {
+        };
+    }
+
+    private Task insertClient() {
+        return new Task() {
             public void command() {
             	System.out.println("Inserir cliente");
             }
-        });
-        map.put(5, new Task() {
+        };
+    }
+
+    private Task showHistoric() {
+        return new Task() {
             public void command() {
             	System.out.println("Hist�rico");
             }
-        });
-        map.put(6, new Task() {
+        };
+    }
+
+    private Task exit() {
+        return new Task() {
             public void command() {
                 System.out.println("[Application] Finishing..");
                 System.exit(0);
             }
-        });
-        return map;
+        };
     }
+
 }
