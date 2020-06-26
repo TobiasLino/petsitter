@@ -1,3 +1,5 @@
+package br.com.fatec.petsitter.model;
+
 public abstract class People {
     private String name;
     private String cpf;

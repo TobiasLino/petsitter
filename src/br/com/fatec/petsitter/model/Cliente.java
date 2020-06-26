@@ -1,3 +1,4 @@
+package br.com.fatec.petsitter.model;
 import java.util.LinkedList;
 
 public class Cliente extends People {

@@ -1,4 +1,4 @@
-
+package br.com.fatec.petsitter.controller;
 
 import java.util.Scanner;
 

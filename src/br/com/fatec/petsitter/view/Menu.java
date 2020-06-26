@@ -1,4 +1,7 @@
+package br.com.fatec.petsitter.view;
 
+import br.com.fatec.petsitter.model.Cliente;
+import br.com.fatec.petsitter.model.Profissional;
 
 public class Menu 
 {

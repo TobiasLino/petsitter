@@ -1,3 +1,5 @@
+package br.com.fatec.petsitter.model;
+
 
 
 // TODO(Tobias): need refatoration

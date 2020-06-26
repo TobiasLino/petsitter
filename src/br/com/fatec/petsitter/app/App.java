@@ -1,3 +1,8 @@
+package br.com.fatec.petsitter.app;
+
+import br.com.fatec.petsitter.model.Agenda;
+import br.com.fatec.petsitter.view.Menu;
+import br.com.fatec.petsitter.controller.Controle;
 
 
 import java.util.HashMap;
@@ -37,17 +42,17 @@ class CreateMap {
         HashMap<Integer, Task> map = new HashMap<Integer, Task>();
         map.put(1, new Task() {
             public void command() {
-                ag.inserirProfissionais();
+            	System.out.println("Inserir petsitter");
             }
         });
         map.put(2, new Task() {
             public void command() {
-                ag.inserirClientes();
+            	System.out.println("Inserir cliente");
             }
         });
         map.put(5, new Task() {
             public void command() {
-                ag.exibirHistorico();
+            	System.out.println("Histórico");
             }
         });
         map.put(6, new Task() {
