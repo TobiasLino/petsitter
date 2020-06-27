@@ -6,11 +6,13 @@ public class Animal {
     public String genero;
     public int idade;
 
-    public Animal() {
-        name = "";
-        raca = "";
-        genero = "";
-        idade = 0;
+    public static Animal create() {
+        Animal pet = new Animal();
+        pet.name = "";
+        pet.raca = "";
+        pet.genero = "";
+        pet.idade = 0;
+        return pet;
     }
 
     public String data() {

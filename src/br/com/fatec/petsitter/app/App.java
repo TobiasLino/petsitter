@@ -3,6 +3,8 @@ package br.com.fatec.petsitter.app;
 import java.util.HashMap;
 
 import br.com.fatec.petsitter.model.Agenda;
+import br.com.fatec.petsitter.model.Cliente;
+import br.com.fatec.petsitter.model.Profissional;
 import br.com.fatec.petsitter.view.Menu;
 import br.com.fatec.petsitter.controller.Controle;
 
@@ -35,7 +37,7 @@ interface Task {
 }
 
 class CreateMap {
-    private static Agenda ag = new Agenda();
+    private static Agenda agenda = new Agenda();
 
     public HashMap<Integer, Task> get() {
         HashMap<Integer, Task> map = new HashMap<Integer, Task>();
@@ -49,7 +51,9 @@ class CreateMap {
     private Task insertPetsitter() {
         return new Task() {
             public void command() {
-            	System.out.println("Inserir petsitter");
+                Profissional petsitter = Profissional.create();
+                Controle.edit(petsitter);
+                agenda.insertPetsitter(petsitter);
             }
         };
     }
@@ -57,7 +61,9 @@ class CreateMap {
     private Task insertClient() {
         return new Task() {
             public void command() {
-            	System.out.println("Inserir cliente");
+                Cliente cliente = Cliente.create();
+                Controle.edit(cliente);
+                agenda.insertClient(cliente);
             }
         };
     }

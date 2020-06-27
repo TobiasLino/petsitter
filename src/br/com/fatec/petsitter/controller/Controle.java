@@ -13,10 +13,11 @@ public class Controle
 {
  public Scanner scanner;
 	
- public Controle() 
+ public static Controle create() 
  {
-    System.out.println("[Controller] Creating new Scanner");
-  scanner = new Scanner(System.in);	  
+    Controle ctrl = new Controle();
+  ctrl.scanner = new Scanner(System.in);
+  return ctrl;  
  }
 
  public int option() 
@@ -55,15 +56,16 @@ public class Controle
         return novo;
     }
 
-    public void edit(People toEdit) {
+    public static void edit(People toEdit) {
+        Controle ctrl = Controle.create();
         boolean exit = false;
         Menu menu = new Menu();
         HashMap<Integer, editPeople> opt = new EditPeopleOptions().get();
         while (!exit) {
             menu.insertPeople(toEdit);
-            int option = this.option();
+            int option = ctrl.option();
 
-            exit = checkExitOptions(option);
+            exit = ctrl.checkExitOptions(option);
 
             Object cmd = opt.get(option);
             ((editPeople) cmd).editPeopleData(toEdit);

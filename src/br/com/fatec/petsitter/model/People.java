@@ -9,7 +9,7 @@ public abstract class People {
     public People() {
         name = "";
         cpf = "";
-        phone = new Telefone();
+        phone = Telefone.create();
     }
     
     public String getName() {
