@@ -1,14 +1,13 @@
 package br.com.fatec.petsitter.app;
 
+import java.util.HashMap;
+
 import br.com.fatec.petsitter.model.Agenda;
 import br.com.fatec.petsitter.view.Menu;
 import br.com.fatec.petsitter.controller.Controle;
 
 
-import java.util.HashMap;
-
 public class App {
-
 	public static void main(String[] args) {
 		System.out.println("[Application] Starting..");
 		Menu menu = new Menu();
@@ -40,27 +39,44 @@ class CreateMap {
 
     public HashMap<Integer, Task> get() {
         HashMap<Integer, Task> map = new HashMap<Integer, Task>();
-        map.put(1, new Task() {
+        map.put(1, insertPetsitter());
+        map.put(2, insertClient());
+        map.put(5, showHistoric());
+        map.put(6, exit());
+        return map;
+    }
+
+    private Task insertPetsitter() {
+        return new Task() {
             public void command() {
             	System.out.println("Inserir petsitter");
             }
-        });
-        map.put(2, new Task() {
+        };
+    }
+
+    private Task insertClient() {
+        return new Task() {
             public void command() {
             	System.out.println("Inserir cliente");
             }
-        });
-        map.put(5, new Task() {
+        };
+    }
+
+    private Task showHistoric() {
+        return new Task() {
             public void command() {
-            	System.out.println("Histórico");
+            	System.out.println("Histï¿½rico");
             }
-        });
-        map.put(6, new Task() {
+        };
+    }
+
+    private Task exit() {
+        return new Task() {
             public void command() {
                 System.out.println("[Application] Finishing..");
                 System.exit(0);
             }
-        });
-        return map;
+        };
     }
+
 }

@@ -1,6 +1,7 @@
 package br.com.fatec.petsitter.view;
 
 import br.com.fatec.petsitter.model.Cliente;
+import br.com.fatec.petsitter.model.People;
 import br.com.fatec.petsitter.model.Profissional;
 
 public class Menu 
@@ -25,6 +26,14 @@ public class Menu
   System.out.println("\t\t######################################################################");
   System.out.print("\nDigite a opcaoo:");
  }
+
+    public void insertPeople(People people) {
+        if (people instanceof Cliente)
+            insertClient((Cliente) people);
+        else
+            insertPetSitter((Profissional) people);
+    }
+
     public void insertPetSitter(Profissional petsitter) {
         // fix : imprimir dados do profissional
         System.out.println("\nInsira a opcao correta\n"
@@ -37,7 +46,7 @@ public class Menu
         System.out.print("Qual sua opcao: ");
     }
 
-    public void insertClient(Cliente client) {
+    private void insertClient(Cliente client) {
         // fix : imprimir dados do cliente
         System.out.println("\nInsira a opcao correta\n"
             + "\t1 - Nome\n"

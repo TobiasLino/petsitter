@@ -24,21 +24,21 @@ public abstract class People {
     
     public void setName(String name) {
         if (name == null) {
-            System.out.println("Erro: Nome está nulo");
+            System.out.println("Erro: Nome esta nulo");
             return;
         }
         this.name = name;
     }
     public void setCPF(String cpf) {
         if (cpf == null) {
-            System.out.println("Erro: CPF está nulo");
+            System.out.println("Erro: CPF esta nulo");
             return;
         }
         this.cpf = cpf;
     }
     public void setPhone(Telefone phone) {
         if (phone == null) {
-            System.out.println("Erro: Telefone está nulo");
+            System.out.println("Erro: Telefone esta nulo");
             return;
         }
         this.phone = phone;

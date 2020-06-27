@@ -1,54 +1,22 @@
 package br.com.fatec.petsitter.model;
 
-
-
 public class Animal {
-    private String name;
+    public String name;
     public String raca;
     public String genero;
-    public String idade;
+    public int idade;
+
+    public Animal() {
+        name = "";
+        raca = "";
+        genero = "";
+        idade = 0;
+    }
+
+    public String data() {
+        return "\t" + name.toUpperCase() + "\n"
+            + "\t\traca: " + raca + "\n"
+            + "\t\tgenero: " + genero + "\n"
+            + "\t\tidade: " + idade;
+    }
 }
- /*
- public int compareTo(Animal a) {
-	 return raca.compareTo(a.raca);
- } 
- public Animal(String texto) 
- {
-  raca = texto;
-  genero = texto;
-  idade = texto;
-  codcliente = texto;  
- }
- public String getRaca() 
- {
-  return raca;			
- }		
- public void setRaca(String raca) 
- {
-  this.raca = raca;			
- } 
- public String getGenero() 
- {
-  return genero;			
- }		
- public void setGenero(String genero) 
- {
-  this.genero = genero;			
- }
- public String getIdade() 
- {
-  return idade;			
- }		
- public void setIdade(String idade) 
- {
-  this.idade = idade;			
- }
- public String getCodigoCliente() 
- {
-  return codcliente;			
- }		
- public void setCodigoCliente(String codcliente) 
- {
-  this.codcliente = codcliente;			
- } 
-}*/
