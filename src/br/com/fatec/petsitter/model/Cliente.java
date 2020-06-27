@@ -4,9 +4,8 @@ import java.util.LinkedList;
 public class Cliente extends People {
     private LinkedList<Animal> pets;
 
-    public Cliente() {
-        super();
-        pets = new LinkedList<>();
+    public static Cliente create() {
+        return new Cliente();
     }
 
     public void addPet(Animal pet) {
@@ -22,5 +21,14 @@ public class Cliente extends People {
 
     public void removePet(String name) {
         
+    }
+
+    public String petsData() {
+        String n = new String();
+        for (Animal pet : pets) {
+            n += "Pet(s):\n";
+            n += pet.data() + "\n";
+        }
+        return n;
     }
 }
