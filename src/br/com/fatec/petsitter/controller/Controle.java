@@ -15,7 +15,7 @@ public class Controle
 	
  public Controle() 
  {
-     System.out.println("[Controller] Creating new Scanner");
+    System.out.println("[Controller] Creating new Scanner");
   scanner = new Scanner(System.in);	  
  }
 
@@ -55,7 +55,7 @@ public class Controle
         return novo;
     }
 
-    private void edit(People toEdit) {
+    public void edit(People toEdit) {
         boolean exit = false;
         Menu menu = new Menu();
         HashMap<Integer, editPeople> opt = new EditPeopleOptions().get();
@@ -70,7 +70,7 @@ public class Controle
         }
     }
 
-    private boolean checkExitOptions(int option) {
+    public boolean checkExitOptions(int option) {
         if (cancelEverything(option))
             return true;
         if (option != 7)
@@ -85,7 +85,9 @@ public class Controle
     private boolean confirm() {
         System.out.print("Tem certeza? (S/N) : ");
         String confirm = this.texto();
-        return (confirm.equals("S") || confirm.equals("s"));
+        return (confirm.equals("S")
+                || confirm.equals("s")
+                || confirm.equals(""));
     }
 
 }

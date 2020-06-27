@@ -1,11 +1,11 @@
 package br.com.fatec.petsitter.app;
 
+import java.util.HashMap;
+
 import br.com.fatec.petsitter.model.Agenda;
 import br.com.fatec.petsitter.view.Menu;
 import br.com.fatec.petsitter.controller.Controle;
 
-
-import java.util.HashMap;
 
 public class App {
 	public static void main(String[] args) {
