@@ -1,21 +1,24 @@
 package br.com.fatec.petsitter.model;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 public class Agenda 
 { 
-   private static int idPetsitter;
-   private static int idClient;
+   private int idPetsitter;
+   private int idClient;
    private HashMap<Integer, People> clients;
    private HashMap<Integer, People> petsitters;
    
    
-   public Agenda() {
+   public static Agenda createEmpty() {
       System.out.println("[Agenda] Creating new Agenda.");
-      idClient = 0;
-      idPetsitter = 0;
-      clients = new HashMap<>();
-      petsitters = new HashMap<>();
+      Agenda agenda = new Agenda();
+      agenda.idClient = 0;
+      agenda.idPetsitter = 0;
+      agenda.clients = new HashMap<>();
+      agenda.petsitters = new HashMap<>();
+      return agenda;
    }
 
    public int getTotalClients() {
@@ -33,6 +36,14 @@ public class Agenda
          return 0;
       }
       return idPetsitter;
+   }
+
+   public HashMap<Integer, People> getClients() {
+       return clients;
+   }
+
+   public HashMap<Integer, People> getPetsitter() {
+       return petsitters;
    }
 
    public void insertPetsitter(Profissional petsitter) {
@@ -71,18 +82,20 @@ public class Agenda
 
    private void removeByName(String name, int idTotal,
          HashMap<Integer, People> agenda) {
-      for (int i : agenda.keySet()) {
-         String nameFromAgenda = ((People)agenda.get(i)).getName();
-         if (nameFromAgenda.equals(name)) {
-            System.out.println("Removendo: " + nameFromAgenda
-               + "\nid: " + i);
-            agenda.remove(i);
-            idTotal -= 1;
+        Optional<Integer> finded = getIdByName(name, agenda);
+        if (finded.isEmpty()) {
+            System.out.println("Não foi encontrado nenhum cadastro com esse nome.");
             return;
-         }
-      }
-      System.out.println("[remove] Nao foi encontrado"
-         + "nenhum Cadastro com esse nome.");
+        }
+        agenda.remove(finded.get());
+   }
+
+   public Optional<Integer> getIdByName(String name, HashMap<Integer, People> agenda) {
+        Optional<Integer> findedID = agenda.entrySet().stream()
+            .filter(x -> name.equals(x.getValue().getName()))
+            .map(x -> x.getKey())
+            .findFirst();
+        return findedID;
    }
 }
 
