@@ -58,8 +58,11 @@ public class UnitTest {
         Animal pet3 = Animal.create();
 
         pet1.raca = "salsicha";
+        pet1.genero = "male";
         pet2.raca = "poodle";
+        pet2.genero = "male";
         pet3.raca = "salsicha";
+        pet3.genero = "male";
 
         n1.addPet(pet1);
         n1.addPet(pet2);

@@ -1,0 +1,6 @@
+Racas mais comuns:
+	1 - poodle
+	2 - salsicha
+Genero preferido por raca:
+	poodle - macho
+	salsicha - macho
