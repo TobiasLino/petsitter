@@ -44,7 +44,7 @@ public class UnitTest {
 
         Report rep = Report.create(agenda);
         
-        System.out.println(rep.getReport());
+        rep.writeReportToFile();
     }
 
     public Agenda newAgendaWithThreeClients() {

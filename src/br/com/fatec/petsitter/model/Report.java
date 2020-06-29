@@ -74,7 +74,6 @@ public class Report {
         MostCommonBreeds mostCommon = new MostCommonBreeds();
         PreferredGenderByRace favouriteGender = new PreferredGenderByRace();
 
-
         str += mostCommon.get();
         str += favouriteGender.get();
         return str;
@@ -82,6 +81,7 @@ public class Report {
 
 
     class MostCommonBreeds {
+
         public String get() {
             String ret = new String();
             int valor = 1;
@@ -130,9 +130,10 @@ public class Report {
             return l;
         }
     }
-    
+
 
     class PreferredGenderByRace {
+
         public String get() {
             String ret = new String();
             HashMap<String, HashMap<String, Integer>> map = 
@@ -191,9 +192,9 @@ public class Report {
 
         private String getTheGenderWithTheGreatestAmount(HashMap<String, Integer> genders) {
             if (genders.get("male") >= genders.get("female")) {
-                return "male";
+                return "macho";
             } else {
-                return "female";
+                return "femea";
             }
         }
     }
