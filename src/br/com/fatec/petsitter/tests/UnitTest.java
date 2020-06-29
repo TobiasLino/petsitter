@@ -7,15 +7,15 @@ package br.com.fatec.petsitter.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 import org.junit.Test;
 
-// import org.junit.Test;
-// import org.junit.Assert;
-
 import br.com.fatec.petsitter.model.Agenda;
+import br.com.fatec.petsitter.model.Animal;
 import br.com.fatec.petsitter.model.Cliente;
+import br.com.fatec.petsitter.model.Report;
 
 public class UnitTest {
     @Test
@@ -36,5 +36,40 @@ public class UnitTest {
 
         assertTrue(finded.isPresent());
         assertEquals(1, (int)finded.get());
+    }
+
+    @Test
+    public void report_writeToFile_01() {
+        Agenda agenda = newAgendaWithThreeClients();
+
+        Report rep = Report.create(agenda);
+        
+        rep.writeReportToFile();
+    }
+
+    public Agenda newAgendaWithThreeClients() {
+        Agenda agenda = Agenda.createEmpty();
+        Cliente n1 = Cliente.create();
+        Cliente n2 = Cliente.create();
+        Cliente n3 = Cliente.create();
+
+        Animal pet1 = Animal.create();
+        Animal pet2 = Animal.create();
+        Animal pet3 = Animal.create();
+
+        pet1.raca = "salsicha";
+        pet2.raca = "poodle";
+        pet3.raca = "salsicha";
+
+        n1.addPet(pet1);
+        n1.addPet(pet2);
+        n2.addPet(pet3);
+        // n3 não possui pet
+
+        agenda.insertClient(n1);
+        agenda.insertClient(n2);
+        agenda.insertClient(n3);
+
+        return agenda;
     }
 }

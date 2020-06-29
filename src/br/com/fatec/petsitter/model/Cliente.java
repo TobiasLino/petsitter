@@ -5,7 +5,9 @@ public class Cliente extends People {
     private LinkedList<Animal> pets;
 
     public static Cliente create() {
-        return new Cliente();
+        Cliente novo = new Cliente();
+        novo.pets = new LinkedList<>();
+        return novo;
     }
 
     public void addPet(Animal pet) {
@@ -21,6 +23,10 @@ public class Cliente extends People {
 
     public void removePet(String name) {
         
+    }
+
+    public LinkedList<Animal> getPets() {
+        return pets;
     }
 
     public String petsData() {

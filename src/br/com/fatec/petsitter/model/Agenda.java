@@ -60,7 +60,7 @@ public class Agenda
          System.out.println("[insertClient] Erro: o cliente está nulo");
          return;
       }
-      idClient =+ 1;
+      idClient += 1;
       clients.put(idClient, client);
    }
 
