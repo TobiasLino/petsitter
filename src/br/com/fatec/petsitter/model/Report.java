@@ -21,17 +21,12 @@ public class Report {
     }
 
     public void writeReportToFile() {
+        String filePath = "rel";
         String fileName = defineReportName();
-        String filePath = "usrFiles//rel";
 
-        File report = new File(filePath + "//" + fileName);
-        File dir = new File(filePath);
-
-        if (!dir.exists()) {
-            createFolder(dir);
-            createFile(dir, report);
-        }
-        WriteInFile(report);
+        FIleManIp fl = FIleManIp.open(filePath, fileName);
+        fl.checkIfExists();
+        fl.WriteInFile(getReport());
     }
 
     private String defineReportName() {
@@ -42,32 +37,7 @@ public class Report {
         return "rel_" + dateFormat.format(new Date()) + ".txt";
     }
 
-    private void createFile(File dir, File report) {
-        try {
-            report.createNewFile();
-        } catch (IOException e) {
-            System.out.println("Não foi possível criar novo arquivo");
-            e.printStackTrace();
-        }
-    }
-
-    private void createFolder(File dir) {
-        if (!dir.mkdirs()) {
-            System.out.println("Não foi possível criar a pasta");
-            return;
-        }
-    }
-
-    private void WriteInFile(File report) {
-        BufferedWriter writer;
-        try {
-            writer = new BufferedWriter(new FileWriter(report));
-            writer.write(getReport());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    
 
     public String getReport() {
         String str = new String();
