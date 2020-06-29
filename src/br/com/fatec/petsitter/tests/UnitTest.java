@@ -15,6 +15,8 @@ import org.junit.Test;
 import br.com.fatec.petsitter.model.Agenda;
 import br.com.fatec.petsitter.model.Animal;
 import br.com.fatec.petsitter.model.Cliente;
+import br.com.fatec.petsitter.model.Historic;
+import br.com.fatec.petsitter.model.Profissional;
 import br.com.fatec.petsitter.model.Report;
 
 public class UnitTest {
@@ -74,5 +76,22 @@ public class UnitTest {
         agenda.insertClient(n3);
 
         return agenda;
+    }
+
+    @Test
+    public void historic_01() {
+        Profissional p = Profissional.create();
+        Cliente c = Cliente.create();
+        Animal a = Animal.create();
+
+        p.setName("Joao");
+        c.setName("Tobias");
+        a.name = "gamora";
+        a.raca = "vira-lata";
+        a.idade = 5;
+        a.genero = "female";
+
+        Historic h = Historic.createEmpty();
+        h.allocate(p, c, a);
     }
 }
