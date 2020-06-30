@@ -12,7 +12,6 @@ public class Agenda
    
    
    public static Agenda createEmpty() {
-      System.out.println("[Agenda] Creating new Agenda.");
       Agenda agenda = new Agenda();
       agenda.idClient = 0;
       agenda.idPetsitter = 0;
@@ -42,7 +41,7 @@ public class Agenda
        return clients;
    }
 
-   public HashMap<Integer, People> getPetsitter() {
+   public HashMap<Integer, People> getPetsitters() {
        return petsitters;
    }
 
@@ -62,6 +61,16 @@ public class Agenda
       }
       idClient += 1;
       clients.put(idClient, client);
+   }
+
+   public Optional<Cliente> getClient(String name) {
+      Optional<Integer> finded = getIdByName(name, clients);
+      return Optional.of((Cliente)clients.get(finded.get()));
+   }
+
+   public Optional<Profissional> getPetsitter(String name) {
+      Optional<Integer> finded = getIdByName(name, petsitters);
+      return Optional.of((Profissional)petsitters.get(finded.get()));
    }
 
    public void removePetsitter(int id) {

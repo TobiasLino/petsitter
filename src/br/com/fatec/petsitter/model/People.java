@@ -50,4 +50,11 @@ public abstract class People {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public String data() {
+        return name.toUpperCase() + "\n"
+            + "\tCPF: " + cpf + "\n"
+            + phone.data() + "\n"
+            + address.data();
+    }
 }

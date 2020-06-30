@@ -37,4 +37,8 @@ public class Cliente extends People {
         }
         return n;
     }
+
+    public String data() {
+        return super.data() + petsData();
+    }
 }
