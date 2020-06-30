@@ -4,12 +4,13 @@ public abstract class People {
     private String name;
     private String cpf;
     private Telefone phone;
-    // TODO: adicionar método de endereço
+    private Address address;
 
     public People() {
         name = "";
         cpf = "";
         phone = Telefone.create();
+        address = Address.create();
     }
     
     public String getName() {
@@ -20,6 +21,9 @@ public abstract class People {
     }
     public Telefone getPhone() {
         return phone;
+    }
+    public Address getAddress() {
+        return address;
     }
     
     public void setName(String name) {
@@ -42,5 +46,8 @@ public abstract class People {
             return;
         }
         this.phone = phone;
+    }
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
