@@ -12,7 +12,6 @@ public class Agenda
    
    
    public static Agenda createEmpty() {
-      System.out.println("[Agenda] Creating new Agenda.");
       Agenda agenda = new Agenda();
       agenda.idClient = 0;
       agenda.idPetsitter = 0;
@@ -42,7 +41,7 @@ public class Agenda
        return clients;
    }
 
-   public HashMap<Integer, People> getPetsitter() {
+   public HashMap<Integer, People> getPetsitters() {
        return petsitters;
    }
 

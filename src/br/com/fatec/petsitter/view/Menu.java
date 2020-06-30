@@ -19,15 +19,15 @@ public class Menu
 
  public void mainMenu()	
  { 
-  System.out.println("\n\n\t\t######################################################################");		
-  System.out.println("\t\t#\t1 - Cadastrar Profissionais.                                 #");
-  System.out.println("\t\t#\t2 - Cadastrar Clientes e Animais                             #");  
-  System.out.println("\t\t#\t3 - Exibir relatorio de ra�as mais comuns                     #");
-  System.out.println("\t\t#\t4 - Exibir relatorio de genero preferido pelo cliente.        #");
-  System.out.println("\t\t#\t5 - Exibir historico de atendimento.                         #");
-  System.out.println("\t\t#\t6 - Sair			                             #");
-  System.out.println("\t\t######################################################################");
-  System.out.print("\nDigite a opcaoo:");
+    System.out.println("\nInsira a opcao correta\n"
+        + "\t1 - Cadastrar Cliente\n"
+        + "\t2 - Cadastrar Petsitter\n"
+        + "\t3 - Cadastrar Animal\n"
+        + "\t4 - Alocar Petsiter para Cliente\n"
+        + "\t5 - Obter Relatório\n"
+        + "\t6 - Mostrar todos os cadastros\n"
+        + "\t7 - Sair\n");
+    System.out.print("Qual sua opcao: ");
  }
 
     public void insertPeople(People people) {
@@ -78,7 +78,7 @@ public class Menu
     public void allocate(Object[] list) {
         System.out.println(((Profissional)list[0]).getName().toUpperCase()
             + " alocado para " + ((Cliente)list[1]).getName().toUpperCase()
-            + " para o pet " + ((Animal)list[2].name.toUpperCase() + "\n");
+            + " para o pet " + ((Animal)list[2]).name.toUpperCase() + "\n");
         System.out.println("\nInsira a opcao correta\n"
             + "\t1 - Inserir petsitter\n"
             + "\t2 - Inserir Cliente\n"
