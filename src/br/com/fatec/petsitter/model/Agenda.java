@@ -64,6 +64,16 @@ public class Agenda
       clients.put(idClient, client);
    }
 
+   public Optional<Cliente> getClient(String name) {
+      Optional<Integer> finded = getIdByName(name, clients);
+      return Optional.of((Cliente)clients.get(finded.get()));
+   }
+
+   public Optional<Profissional> getPetsitter(String name) {
+      Optional<Integer> finded = getIdByName(name, petsitters);
+      return Optional.of((Profissional)petsitters.get(finded.get()));
+   }
+
    public void removePetsitter(int id) {
       petsitters.remove(id);
       idPetsitter -= 1;

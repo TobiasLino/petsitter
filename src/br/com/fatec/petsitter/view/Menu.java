@@ -1,5 +1,7 @@
 package br.com.fatec.petsitter.view;
 
+import java.util.LinkedList;
+
 import br.com.fatec.petsitter.model.Animal;
 import br.com.fatec.petsitter.model.Cliente;
 import br.com.fatec.petsitter.model.People;
@@ -72,4 +74,17 @@ public class Menu
         System.out.print("Qual sua opcao: ");
     }
 
+
+    public void allocate(Object[] list) {
+        System.out.println(((Profissional)list[0]).getName().toUpperCase()
+            + " alocado para " + ((Cliente)list[1]).getName().toUpperCase()
+            + " para o pet " + ((Animal)list[2].name.toUpperCase() + "\n");
+        System.out.println("\nInsira a opcao correta\n"
+            + "\t1 - Inserir petsitter\n"
+            + "\t2 - Inserir Cliente\n"
+            + "\t3 - Inserir Pet\n"
+            + "\t4 - Cancelar\n"
+            + "\t5 - Salvar\n");
+        System.out.print("Qual sua opcao: ");
+    }
 }
