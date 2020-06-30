@@ -146,7 +146,8 @@ public class Controle
                 return new editPeople() {
                     public void editPeopleData(People people) {
                         System.out.print("Insira o nome: ");
-                        people.setName(Controle.texto());
+                        String name = Controle.texto();
+                        people.setName(name);
                     }
                 };
             }
@@ -155,7 +156,8 @@ public class Controle
                 return new editPeople() {
                     public void editPeopleData(People people) {
                         System.out.print("Insira o cpf: ");
-                        people.setCPF(Controle.texto());
+                        String str = Controle.texto();
+                        people.setCPF(str);
                     }
                 };
             }

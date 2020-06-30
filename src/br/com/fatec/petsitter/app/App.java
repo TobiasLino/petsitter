@@ -21,7 +21,7 @@ public class App {
         Menu menu = new Menu();
         Agenda agenda = Agenda.createEmpty();
         Historic historic = Historic.createEmpty();
-		CreateMap cMap = new CreateMap();
+		CreateMap cMap = new CreateMap(agenda, Controle.create(), historic);
 		HashMap<Integer, Task> options = cMap.get();
 		
 		System.out.println("[Application] Started!");
