@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -57,9 +58,10 @@ public class Report {
             int valor = 1;
             LinkedList<String> breeds =
                     sortByValue(getAllBreeds(agenda.getClients()));
+            Iterator<String> breed = breeds.descendingIterator();
             ret += "Racas mais comuns:\n";
-            for (String raca : breeds) {
-                ret += "\t" + valor + " - " + raca + "\n";
+            while (breed.hasNext()) {
+                ret += "\t" + valor + " - " + breed.next() + "\n";
                 valor += 1;
             }
             return ret;
