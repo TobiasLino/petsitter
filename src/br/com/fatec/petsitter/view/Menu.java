@@ -1,5 +1,6 @@
 package br.com.fatec.petsitter.view;
 
+import br.com.fatec.petsitter.model.Animal;
 import br.com.fatec.petsitter.model.Cliente;
 import br.com.fatec.petsitter.model.People;
 import br.com.fatec.petsitter.model.Profissional;
@@ -35,7 +36,7 @@ public class Menu
     }
 
     public void insertPetSitter(Profissional petsitter) {
-        // fix : imprimir dados do profissional
+        System.out.println(petsitter.data());
         System.out.println("\nInsira a opcao correta\n"
             + "\t1 - Nome\n"
             + "\t2 - CPF\n"
@@ -47,7 +48,7 @@ public class Menu
     }
 
     private void insertClient(Cliente client) {
-        // fix : imprimir dados do cliente
+        System.out.println(client.data());
         System.out.println("\nInsira a opcao correta\n"
             + "\t1 - Nome\n"
             + "\t2 - CPF\n"
@@ -56,6 +57,18 @@ public class Menu
             + "\t5 - Adicionar Pet\n"
             + "\t6 - Cancelar\n"
             + "\t7 - Salvar\n");
+        System.out.print("Qual sua opcao: ");
+    }
+
+    public void editPet(Animal pet) {
+        System.out.println(pet.data());
+        System.out.println("\nInsira a opcao correta\n"
+            + "\t1 - Nome\n"
+            + "\t2 - raca\n"
+            + "\t3 - genero\n"
+            + "\t4 - idade\n"
+            + "\t5 - Cancelar\n"
+            + "\t6 - Salvar\n");
         System.out.print("Qual sua opcao: ");
     }
 
